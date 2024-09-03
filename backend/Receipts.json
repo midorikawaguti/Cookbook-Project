@@ -1,0 +1,235 @@
+{
+  "receipts": [
+    {
+      "Name": "Spaghetti with tomato sauce",
+      "Type": "Main course",
+      "Author": "Unknown",
+      "Ingredients": {
+        "Tomatoes": "2 cups diced",
+        "Pasta": "8 ounces",
+        "Garlic": "2 cloves minced",
+        "Olive oil": "2 tablespoons",
+        "Salt": "to taste",
+        "Pepper": "to taste"
+      },
+      "Cooking minutes": 20,
+      "Serving size": 4,
+      "Instructions": [
+        "Cook pasta according to package instructions.",
+        "In a saucepan, heat olive oil over medium heat. Add minced garlic and cook until fragrant.",
+        "Add diced tomatoes to the saucepan and simmer for 10-15 minutes, until the sauce thickens.",
+        "Season with salt and pepper to taste.",
+        "Serve the tomato sauce over cooked spaghetti."
+      ],
+      "Remarks": ""
+    },
+    {
+      "Name": "Grilled cheese sandwich",
+      "Type": "Main course",
+      "Author": "Unknown",
+      "Ingredients": {
+        "Bread": "4 slices",
+        "Cheese": "4 slices",
+        "Butter": "2 tablespoons"
+      },
+      "Cooking minutes": 10,
+      "Serving size": 2,
+      "Instructions": [
+        "Heat a skillet or griddle over medium heat.",
+        "Spread butter on one side of each slice of bread.",
+        "Place a slice of cheese between two slices of bread, buttered side facing out.",
+        "Place the sandwich on the skillet or griddle and cook until golden brown on each side, and the cheese is melted.",
+        "Repeat with remaining ingredients to make additional sandwiches."
+      ],
+      "Remarks": ""
+    },
+    {
+      "Name": "Scrambled eggs with spinach and cheese",
+      "Type": "Breakfast",
+      "Author": "Unknown",
+      "Ingredients": {
+        "Eggs": "4",
+        "Spinach": "1 cup chopped",
+        "Cheese": "1/2 cup shredded",
+        "Salt": "to taste",
+        "Pepper": "to taste"
+      },
+      "Cooking minutes": 10,
+      "Serving size": 2,
+      "Instructions": [
+        "In a bowl, whisk together eggs, salt, and pepper.",
+        "Heat a skillet over medium heat and add chopped spinach. Cook until wilted.",
+        "Pour the whisked eggs over the spinach and cook, stirring occasionally, until the eggs are set.",
+        "Sprinkle shredded cheese over the scrambled eggs and cook until melted.",
+        "Serve hot."
+      ],
+      "Remarks": ""
+    },
+    {
+      "Name": "Chicken stir-fry with vegetables",
+      "Type": "Main course",
+      "Author": "Unknown",
+      "Ingredients": {
+        "Chicken": "1 lb boneless, skinless chicken breast, sliced",
+        "Bell peppers": "2, sliced",
+        "Broccoli": "1 cup florets",
+        "Carrots": "2, sliced",
+        "Onions": "1, sliced",
+        "Garlic": "2 cloves minced",
+        "Soy sauce": "1/4 cup",
+        "Vegetable oil": "2 tablespoons"
+      },
+      "Cooking minutes": 15,
+      "Serving size": 4,
+      "Instructions": [
+        "In a wok or large skillet, heat vegetable oil over high heat.",
+        "Add sliced chicken and cook until browned and cooked through.",
+        "Add minced garlic and sliced vegetables to the skillet and stir-fry until tender-crisp.",
+        "Pour soy sauce over the chicken and vegetables and stir to combine.",
+        "Serve hot over cooked rice."
+      ],
+      "Remarks": ""
+    },
+    {
+      "Name": "Caesar salad",
+      "Type": "Salad",
+      "Author": "Unknown",
+      "Ingredients": {
+        "Lettuce": "1 head, torn into bite-sized pieces",
+        "Croutons": "1 cup",
+        "Parmesan cheese": "1/4 cup grated",
+        "Caesar dressing": "1/2 cup"
+      },
+      "Cooking minutes": 10,
+      "Serving size": 2,
+      "Instructions": [
+        "In a large salad bowl, toss together torn lettuce, croutons, and grated Parmesan cheese.",
+        "Drizzle Caesar dressing over the salad and toss to coat evenly.",
+        "Serve immediately."
+      ],
+      "Remarks": ""
+    },
+    {
+      "Name": "Beef stew with potatoes and carrots",
+      "Type": "Main course",
+      "Author": "Unknown",
+      "Ingredients": {
+        "Beef": "1 lb stew meat, cubed",
+        "Potatoes": "2 large, diced",
+        "Carrots": "2 large, sliced",
+        "Onions": "1 large, diced",
+        "Garlic": "2 cloves minced",
+        "Beef broth": "4 cups"
+      },
+      "Cooking minutes": 120,
+      "Serving size": 4,
+      "Instructions": [
+        "In a large pot or Dutch oven, heat oil over medium heat.",
+        "Add cubed beef and brown on all sides.",
+        "Add minced garlic, diced onions, diced potatoes, sliced carrots, and beef broth to the pot.",
+        "Bring the stew to a boil, then reduce heat and simmer for 1.5-2 hours, until the beef is tender and the vegetables are cooked through.",
+        "Season with salt and pepper to taste.",
+        "Serve hot."
+      ],
+      "Remarks": ""
+    },
+    {
+      "Name": "Pasta primavera",
+      "Type": "Main course",
+      "Author": "Unknown",
+      "Ingredients": {
+        "Pasta": "8 ounces",
+        "Bell peppers": "2, sliced",
+        "Broccoli": "1 cup florets",
+        "Carrots": "2, sliced",
+        "Mushrooms": "1 cup sliced",
+        "Olive oil": "2 tablespoons",
+        "Garlic": "2 cloves minced"
+      },
+      "Cooking minutes": 20,
+      "Serving size": 4,
+      "Instructions": [
+        "Cook pasta according to package instructions.",
+        "In a large skillet, heat olive oil over medium heat.",
+        "Add minced garlic and sliced vegetables to the skillet and stir-fry until tender-crisp.",
+        "Toss cooked pasta with the stir-fried vegetables until well combined.",
+        "Season with salt and pepper to taste.",
+        "Serve hot."
+      ],
+      "Remarks": ""
+    },
+    {
+      "Name": "Fish tacos",
+      "Type": "Main course",
+      "Author": "Unknown",
+      "Ingredients": {
+        "Fish": "1 lb white fish fillets",
+        "Tortillas": "8",
+        "Lettuce": "1 cup shredded",
+        "Tomatoes": "2, diced",
+        "Avocado": "1, sliced",
+        "Lime": "1, sliced",
+        "Cilantro": "1/4 cup chopped"
+      },
+      "Cooking minutes": 15,
+      "Serving size": 4,
+      "Instructions": [
+        "Season fish fillets with salt and pepper.",
+        "Heat a skillet over medium heat and cook fish fillets for 3-4 minutes per side, until cooked through.",
+        "Warm tortillas in a skillet or microwave.",
+        "Assemble tacos by placing cooked fish on warmed tortillas and topping with shredded lettuce, diced tomatoes, sliced avocado, lime slices, and chopped cilantro.",
+        "Serve hot."
+      ],
+      "Remarks": ""
+    },
+    {
+      "Name": "Vegetable stir-fry with tofu",
+      "Type": "Main course",
+      "Author": "Unknown",
+      "Ingredients": {
+        "Tofu": "1 block, cubed",
+        "Bell peppers": "2, sliced",
+        "Broccoli": "1 cup florets",
+        "Carrots": "2, sliced",
+        "Onions": "1, sliced",
+        "Garlic": "2 cloves minced",
+        "Soy sauce": "1/4 cup",
+        "Vegetable oil": "2 tablespoons"
+      },
+      "Cooking minutes": 15,
+      "Serving size": 4,
+      "Instructions": [
+        "In a wok or large skillet, heat vegetable oil over high heat.",
+        "Add cubed tofu and cook until golden brown on all sides.",
+        "Add minced garlic and sliced vegetables to the skillet and stir-fry until tender-crisp.",
+        "Pour soy sauce over the tofu and vegetables and stir to combine.",
+        "Serve hot over cooked rice."
+      ],
+      "Remarks": ""
+    },
+    {
+      "Name": "Caprese salad",
+      "Type": "Salad",
+      "Author": "Unknown",
+      "Ingredients": {
+        "Tomatoes": "2 large, sliced",
+        "Mozzarella cheese": "1 ball, sliced",
+        "Basil": "1/4 cup fresh leaves",
+        "Olive oil": "2 tablespoons",
+        "Balsamic vinegar": "1 tablespoon",
+        "Salt": "to taste",
+        "Pepper": "to taste"
+      },
+      "Cooking minutes": 10,
+      "Serving size": 2,
+      "Instructions": [
+        "Alternate slices of tomato and mozzarella cheese on a serving platter.",
+        "Tuck fresh basil leaves between the tomato and cheese slices.",
+        "Drizzle olive oil and balsamic vinegar over the salad.",
+        "Season with salt and pepper to taste.",
+        "Serve immediately."
+      ],
+      "Remarks": ""
+    }
+  ]
+}
