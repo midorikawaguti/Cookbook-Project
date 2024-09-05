@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Card, ToggleButton } from 'react-bootstrap'
 import { FaHeart } from 'react-icons/fa'
 
@@ -15,11 +16,13 @@ const Recipe = ({ recipe }) => {
     <div className="d-flex justify-content-around">
       <Card className="mb-4" style={{ width: '18rem', height: '25rem' }}>
         <Card.Img style={{ width: '18rem', height: '13rem' }} variant="top" src={recipe.image} />
+        
         <Card.Body>
           <div className="d-flex justify-content-around">
-            <a href={`/recipe/${recipe._id}`}>
+            <Link to={`/recipe/${recipe._id}`}>
               <Card.Title>{recipe.name}</Card.Title>
-            </a>
+            </Link>
+
             <ToggleButton
               type="checkbox"
               className="favorite-icon"
@@ -30,10 +33,13 @@ const Recipe = ({ recipe }) => {
               <FaHeart color={isFavorite ? "#63E6BE" : "#E6E6E6"} size={24} />
             </ToggleButton>
           </div>
+
           <Card.Text className="mb-3">
             {recipe.description}
           </Card.Text>
+          
         </Card.Body>
+
       </Card>
     </div>
   );
