@@ -99,7 +99,7 @@ const recipes = [
   {
     _id: '4',
     name: 'Chocolate Chip Cookies',
-    image: '/images/chocolate_chip_cookies.jpg',
+    image: '/images/chocolate_chip_cookies.jpeg',
     ingredients: [
       '200g unsalted butter',
       '150g brown sugar',
@@ -112,7 +112,7 @@ const recipes = [
       '200g chocolate chips'
     ],
     cookingTime: 30, // in minutes
-    servingSize: 24 cookies,
+    servingSize: 24,
     recipeType: 'Dessert',
     rating: 4.9,
     category: 'American',
