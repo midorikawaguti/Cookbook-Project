@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Card, ToggleButton } from 'react-bootstrap'
-import { FaStar } from 'react-icons/fa'
+import { FaHeart } from 'react-icons/fa'
 
 const Recipe = ({ recipe }) => {
   // State to track whether the recipe is marked as favorite
@@ -22,12 +22,12 @@ const Recipe = ({ recipe }) => {
             </a>
             <ToggleButton
               type="checkbox"
-              className="mb-2"
-              variant={isFavorite ? "success" : "outline-success"}
+              className="favorite-icon"
+              variant="link"  // The link variant removes the background color but doesn't fully eliminate the border
               checked={isFavorite}
               onClick={handleFavoriteToggle}
             >
-              <FaStar />
+              <FaHeart color={isFavorite ? "#63E6BE" : "#E6E6E6"} size={24} />
             </ToggleButton>
           </div>
           <Card.Text className="mb-3">
