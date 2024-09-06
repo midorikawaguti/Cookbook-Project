@@ -7,3 +7,49 @@ main {
   border: none;
   box-shadow: none;
 }
+
+/* RecipeScreen Page */
+
+/* Ensure the main content does not overlap with the image */
+.main-content {
+  margin-right: 25%; /* Create space for the image on the right */
+  padding-top: 20px; /* Add padding to avoid overlap with the header */
+}
+
+.image-full-height {
+  height: 100vh; /* Makes the column full height of the viewport */
+  position: fixed; /* Fixes the image to the right of the viewport */
+  right: 0; /* Aligns the image to the right */
+  top: 0; /* Ensures the image starts from the top of the page */
+  z-index: -1; /* Ensure the image stays behind other content */
+}
+
+.full-height-image {
+  height: 100%; /* Ensures the image fills the entire column */
+  width: 100%; /* Prevents stretching the image */
+  object-fit: cover; /* Ensures the image covers the space without distortion */
+}
+
+
+/* Adjustments for screens 768px or smaller */
+@media (max-width: 768px) {
+  .main-content {
+    margin-right: 0; /* Removes right margin on small screens */
+    padding-top: 20px; /* Adjusts padding for smaller screens */
+  }
+
+  .card-recipe {
+    width: 100%; /* Ensures the card takes full width on small screens */
+    margin: 0 auto; /* Centralizes the card on small screens */
+  }
+}
+
+
+.badge-custom{
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  border-radius: 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
