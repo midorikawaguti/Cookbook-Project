@@ -1,7 +1,9 @@
 import express from 'express';
+import dotenv from 'dotenv';
+dotenv.config();
 import recipes from '../backend/data/recipes.js';
 
-const port = 5500;
+const port = process.env.PORT || 8000;
 const app = express();
 app.get('/', (req, res)=>{
     res.send('API is running in cookbook app...')
