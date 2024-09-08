@@ -1,9 +1,28 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
-import recipes from '../recipes.js'
 import Recipe from '../components/Recipe.jsx'
+import axios from 'axios'
 
 function HomeScreen() {
+  const[recipes, setRecipes] = useState([]);
+
+  useEffect(()=>{
+    const fetchRecipes = async() =>{
+      try{
+        const{data} = await axios.get('/api/recipes');
+        setRecipes(data);
+      }
+      catch(error){
+        console.error('Error fetching recipes:', error);
+      }
+    };
+
+      fetchRecipes();
+  },[]);
+
+
+
   return (
     <>
         <h1>Recipes</h1>

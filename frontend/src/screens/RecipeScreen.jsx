@@ -1,14 +1,21 @@
-import React from 'react'
+import {useEffect, useState} from 'react'
+import axios from 'axios';
 import { useParams } from 'react-router-dom'
-import recipes from '../recipes'
 import {Row, Col, Image, ListGroup, Card, Button, Badge} from 'react-bootstrap';
 import { FaUsers, FaClock, FaPaperPlane} from 'react-icons/fa';
 
 const RecipeScreen = () => {
+    const [recipe, setRecipe] = useState([]);
 
-    const {id: recipeId} = useParams();
-    const recipe = recipes.find((r)=>r._id === recipeId)
-    console.log(recipe);
+    const{id: recipeId} = useParams();
+
+    useEffect(() =>{
+      const fetchRecipe = async() =>{
+        const{data} = await axios.get(`/api/recipes/${recipeId}`);
+        setRecipe(data);
+      }
+      fetchRecipe();
+    }, [recipeId])
 
   return (
     <>
@@ -61,7 +68,7 @@ const RecipeScreen = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <ul>
-                  {recipe.ingredients.map((ingredient, index) => (
+                  {recipe.ingredients?.map((ingredient, index) => (
                     <li key={index}>{ingredient}</li>
                   ))}
                 </ul>
@@ -83,7 +90,7 @@ const RecipeScreen = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <ol>
-                  {recipe.instructions.map((step, index) => (
+                  {recipe.instructions?.map((step, index) => (
                     <li key={index}>{step}</li>
                   ))}
                 </ol>
