@@ -1,6 +1,5 @@
 const recipes = [
   {
-    _id: '1',
     name: 'Spaghetti Carbonara',
     image: '/images/spaghetti_carbonara.jpg',
     ingredients: [
@@ -31,7 +30,6 @@ const recipes = [
     diet: 'Non-Vegetarian',
   },
   {
-    _id: '2',
     name: 'Chicken Tikka Masala',
     image: '/images/chicken_tikka_masala.jpg',
     ingredients: [
@@ -63,7 +61,6 @@ const recipes = [
     diet: 'Non-Vegetarian',
   },
   {
-    _id: '3',
     name: 'Vegetable Stir-Fry',
     image: '/images/vegetable_stir_fry.jpg',
     ingredients: [
@@ -97,7 +94,6 @@ const recipes = [
     diet: 'Vegetarian',
   },
   {
-    _id: '4',
     name: 'Chocolate Chip Cookies',
     image: '/images/chocolate_chip_cookies.jpeg',
     ingredients: [
@@ -132,7 +128,6 @@ const recipes = [
     diet: 'Vegetarian',
   },
   {
-    _id: '5',
     name: 'Caesar Salad',
     image: '/images/caesar_salad.jpg',
     ingredients: [
@@ -166,7 +161,6 @@ const recipes = [
     diet: 'Non-Vegetarian',
   },
   {
-    _id: '6',
     name: 'Lemon Drizzle Cake',
     image: '/images/lemon_drizzle_cake.jpg',
     ingredients: [
