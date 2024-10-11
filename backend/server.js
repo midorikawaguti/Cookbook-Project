@@ -2,9 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 import connectDB from './config/db.js';
-import recipes from '../backend/data/recipes.js';
+import recipeRoutes from '../backend/routes/recipeRoute.js';
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8000; //port for the back end is set in .env file with PORT=5500
 
 connectDB();
 
@@ -13,17 +13,18 @@ app.get('/', (req, res)=>{
     res.send('API is running in cookbook app...')
 });
 
-app.listen(port, () => console.log(`server running on ${port}`));
+
 
 
 // GET ALL RECIPES
-app.get('/api/recipes', (req, res) =>{
-    res.json(recipes);
-})
+app.use('/api/recipes', recipeRoutes);
+
 
 
 //GET SINGLE RECIPE
-app.get('/api/recipes/:id', (req, res)=>{
-    const recipe= recipes.find((r)=>r._id === req.params.id);
-    res.json(recipe);
-})
+// app.get('/api/recipes/:id', (req, res)=>{
+//     const recipe= recipes.find((r)=>r._id === req.params.id);
+//     res.json(recipe);
+// })
+
+app.listen(port, () => console.log(`server running on ${port}`));
