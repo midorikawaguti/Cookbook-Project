@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 import connectDB from './config/db.js';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import recipeRoutes from '../backend/routes/recipeRoute.js';
 
 const port = process.env.PORT || 8000; //port for the back end is set in .env file with PORT=5500
@@ -14,12 +15,11 @@ app.get('/', (req, res)=>{
 });
 
 
-
-
 // GET ALL RECIPES
 app.use('/api/recipes', recipeRoutes);
 
-
+app.use(notFound),
+app.use(errorHandler);
 
 //GET SINGLE RECIPE
 // app.get('/api/recipes/:id', (req, res)=>{

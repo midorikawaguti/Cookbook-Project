@@ -20,7 +20,11 @@ router.get('/:id', asyncHandler (async(req, res) =>{
      if (recipe){
          return res.json(recipe);
      }
-     res.status(404).json({message: 'Recipe not found'});
+     else{
+        res.status(404);
+        throw newError('Resource not found')
+     }
+     
      })
     );
 
