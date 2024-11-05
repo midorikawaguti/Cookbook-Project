@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import HomeScreen from './screens/HomeScreen';
 import RecipeScreen from './screens/RecipeScreen';
-import store from '../store';
+import store from '../src/store';
 import { Provider } from 'react-redux';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/styles/bootstrap.custom.css';
