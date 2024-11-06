@@ -1,25 +1,33 @@
-import {useEffect, useState} from 'react'
-import axios from 'axios';
+// import {useEffect, useState} from 'react'
+// import axios from 'axios';
 import { useParams } from 'react-router-dom'
-import {Row, Col, Image, ListGroup, Card, Button, Badge} from 'react-bootstrap';
-import { FaUsers, FaClock, FaPaperPlane} from 'react-icons/fa';
+import {Row, Col, Image, ListGroup, Card, Badge} from 'react-bootstrap';
+import { FaUsers, FaClock, FaPaperPlane, FaHeart} from 'react-icons/fa';
+import { useGetRecipesDetailsQuery } from '../slices/recipeApiSlice';
+
 
 const RecipeScreen = () => {
-    const [recipe, setRecipe] = useState([]);
+    // const [recipe, setRecipe] = useState([]);
 
     const{id: recipeId} = useParams();
+    const {data:recipe, isLoading, error}=useGetRecipesDetailsQuery(recipeId);
 
-    useEffect(() =>{
-      const fetchRecipe = async() =>{
-        const{data} = await axios.get(`/api/recipes/${recipeId}`);
-        setRecipe(data);
-      }
-      fetchRecipe();
-    }, [recipeId])
+    // useEffect(() =>{
+    //   const fetchRecipe = async() =>{
+    //     const{data} = await axios.get(`/api/recipes/${recipeId}`);
+    //     setRecipe(data);
+    //   }
+    //   fetchRecipe();
+    // }, [recipeId])
 
   return (
     <>
-    <Row className="justify-content-center mb-4 main-content">
+    {isLoading?(
+      <h2>Loading...</h2>
+    ): error?(
+      <div>{error?.data?.message || error.error}</div>
+    ):(
+      <Row className="justify-content-center mb-4 main-content">
       <Col md={9}>
         <Card className="p-3 mb-3 card-recipe">
           <Row className="text-center">
@@ -55,6 +63,9 @@ const RecipeScreen = () => {
               </Col>
               <Col xs="auto" className="text-center mb-2">
                 <FaPaperPlane />
+              </Col>
+              <Col xs="auto" className="text-center mb-2">
+                <FaHeart />
               </Col>
             </Row>
 
@@ -105,6 +116,8 @@ const RecipeScreen = () => {
           <Image src={recipe.image} alt={recipe.name} fluid className="full-height-image" />
         </Col>
     </Row>
+    )}
+    
 
              
     </>
