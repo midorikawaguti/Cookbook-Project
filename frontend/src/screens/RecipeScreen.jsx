@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Card, Badge} from 'react-bootstrap';
 import { FaUsers, FaClock, FaPaperPlane, FaHeart} from 'react-icons/fa';
 import { useGetRecipesDetailsQuery } from '../slices/recipeApiSlice';
+import Loader from '../components/Loader';
+import Message from '../components/Message';
 
 
 const RecipeScreen = () => {
@@ -23,9 +25,9 @@ const RecipeScreen = () => {
   return (
     <>
     {isLoading?(
-      <h2>Loading...</h2>
+      <Loader/>
     ): error?(
-      <div>{error?.data?.message || error.error}</div>
+      <Message variant ='danger'>{error?.data?.message || error.error}</Message>
     ):(
       <Row className="justify-content-center mb-4 main-content">
       <Col md={9}>

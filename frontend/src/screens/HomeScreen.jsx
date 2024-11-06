@@ -4,6 +4,8 @@ import { Row, Col } from 'react-bootstrap'
 import Recipe from '../components/Recipe.jsx'
 // import axios from 'axios'
 import { useGetRecipesQuery } from '../slices/recipeApiSlice.js'
+import Message from '../components/Message.jsx'
+import Loader from '../components/Loader.jsx'
 
 function HomeScreen() {
   const { data: recipes, isLoading, error } = useGetRecipesQuery();
@@ -11,11 +13,11 @@ function HomeScreen() {
   return (
     <>
       {isLoading ? (
-        <h2>Loading..</h2>
+        <Loader>Loading..</Loader>
       ): error?(
-        <div>
+        <Message variant='danger'>
           error?.data.message || error.error 
-        </div>) : (<> 
+        </Message>) : (<> 
           <h1>Recipes</h1>
         <Row>
             {recipes.map((recipe)=>(
