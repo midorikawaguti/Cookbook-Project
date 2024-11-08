@@ -12,14 +12,16 @@ function HomeScreen() {
 
   return (
     <>
-      {isLoading ? (
-        <Loader>Loading..</Loader>
+      {isLoading?(
+        <Loader/>
       ): error?(
         <Message variant='danger'>
-          error?.data.message || error.error 
-        </Message>) : (<> 
+          error?.data.message || error.error
+        </Message>
+      ) : (
+        <> 
           <h1>Recipes</h1>
-        <Row>
+            <Row>
             {recipes.map((recipe)=>(
                 <Col key={recipe._id} sm={12} md={6} lg={4} xl={3}>
                     <Recipe recipe={recipe}></Recipe>

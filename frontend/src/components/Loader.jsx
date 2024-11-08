@@ -2,7 +2,7 @@ import {Spinner} from 'react-bootstrap';
 
 function Loader(){
     return(
-        <Spinner>
+        <Spinner
             animation="border"
             role="status"
             style={{
@@ -11,6 +11,7 @@ function Loader(){
                 margin: "auto",
                 display: "block",
             }}
+        >
         </Spinner>
     )
 }
