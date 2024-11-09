@@ -38,7 +38,7 @@ const Header = () => {
               </NavDropdown.Item>
             </LinkContainer>
               
-            <LinkContainer to="/action/3.2">
+            <LinkContainer to="/favorites">
               <NavDropdown.Item>
                 Favorites
               </NavDropdown.Item>

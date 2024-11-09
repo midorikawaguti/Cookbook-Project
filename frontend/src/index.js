@@ -14,6 +14,7 @@ import { createBrowserRouter,
          createRoutesFromElements,
          Route,
          RouterProvider } from 'react-router-dom';
+import FavoriteScreen from './screens/FavoriteScreen';
 
 
 const router = createBrowserRouter(
@@ -21,6 +22,8 @@ const router = createBrowserRouter(
     <Route path='/' element={<App/>}>
       <Route index={true} path="/" element={<HomeScreen/>}/>
        <Route path="/recipe/:id" element={<RecipeScreen/>}/>
+       <Route path="/home" element={<HomeScreen/>}/>
+       <Route path="/favorites" element={<FavoriteScreen/>}/>
     </Route>
   )
 )

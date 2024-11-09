@@ -1,18 +1,29 @@
 // import {useEffect, useState} from 'react'
 // import axios from 'axios';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Card, Badge} from 'react-bootstrap';
 import { FaUsers, FaClock, FaPaperPlane, FaHeart} from 'react-icons/fa';
 import { useGetRecipesDetailsQuery } from '../slices/recipeApiSlice';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
-
+import { addToFav } from '../slices/favoriteSlice';
+import { useDispatch } from 'react-redux';
 
 const RecipeScreen = () => {
     // const [recipe, setRecipe] = useState([]);
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+
     const{id: recipeId} = useParams();
     const {data:recipe, isLoading, error}=useGetRecipesDetailsQuery(recipeId);
+
+
+    const addToFavHandler = () =>{
+      dispatch(addToFav({...recipe}));
+      navigate('/favorite');
+    }
 
     // useEffect(() =>{
     //   const fetchRecipe = async() =>{
@@ -67,7 +78,9 @@ const RecipeScreen = () => {
                 <FaPaperPlane />
               </Col>
               <Col xs="auto" className="text-center mb-2">
-                <FaHeart />
+                <button onClick={()=> addToFavHandler}>
+                  <FaHeart />
+                </button>
               </Col>
             </Row>
 
