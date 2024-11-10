@@ -1,37 +1,43 @@
 // import {useEffect, useState} from 'react'
 // import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom'
-import {Row, Col, Image, ListGroup, Card, Badge} from 'react-bootstrap';
+import {useParams } from 'react-router-dom'
+import React, { useState} from 'react'
+import {Row, Col, Image, ListGroup, Card, Badge, ToggleButton} from 'react-bootstrap';
 import { FaUsers, FaClock, FaPaperPlane, FaHeart} from 'react-icons/fa';
 import { useGetRecipesDetailsQuery } from '../slices/recipeApiSlice';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
-import { addToFav } from '../slices/favoriteSlice';
-import { useDispatch } from 'react-redux';
+import { addToFav, removeFromFav } from '../slices/favoriteSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const RecipeScreen = () => {
-    // const [recipe, setRecipe] = useState([]);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-
 
     const{id: recipeId} = useParams();
     const {data:recipe, isLoading, error}=useGetRecipesDetailsQuery(recipeId);
 
+    // Get favorite items from Redux state
+    const favoriteItems = useSelector((state) => state.favorite.favoriteItems);
 
-    const addToFavHandler = () =>{
-      dispatch(addToFav({...recipe}));
-      navigate('/favorite');
+    // Set initial state for isFavorite based on whether the recipe is in favoriteItems
+    const [isFavorite, setIsFavorite] = useState(
+      favoriteItems.some((item) => item._id === recipeId)
+    );
+
+  // Toggle favorite state
+  const handleFavoriteToggle = () => {
+    if (isFavorite) {
+      dispatch(removeFromFav(recipeId));
+      setIsFavorite(false);
+      console.log("Removed from Favorites");
+    } else {
+      dispatch(addToFav(recipe));
+      setIsFavorite(true);
+      console.log("Added to Favorites");
     }
+  };
 
-    // useEffect(() =>{
-    //   const fetchRecipe = async() =>{
-    //     const{data} = await axios.get(`/api/recipes/${recipeId}`);
-    //     setRecipe(data);
-    //   }
-    //   fetchRecipe();
-    // }, [recipeId])
 
   return (
     <>
@@ -78,9 +84,17 @@ const RecipeScreen = () => {
                 <FaPaperPlane />
               </Col>
               <Col xs="auto" className="text-center mb-2">
-                <button onClick={()=> addToFavHandler}>
-                  <FaHeart />
-                </button>
+                  <ToggleButton
+                    type="checkbox"
+                    className="favorite-icon"
+                    variant="link"
+                    onClick={handleFavoriteToggle}
+                     style={{
+                    padding: 0,  // Remove extra padding if any
+                  }}
+                  >
+                    <FaHeart color={isFavorite ? "#63E6BE" : "#E6E6E6"} size={24} />
+                  </ToggleButton>
               </Col>
             </Row>
 

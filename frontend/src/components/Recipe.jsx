@@ -3,11 +3,16 @@ import { Link } from 'react-router-dom'
 import { Card, ToggleButton } from 'react-bootstrap'
 import { FaHeart } from 'react-icons/fa'
 import { addToFav, removeFromFav } from '../slices/favoriteSlice'
-import { useDispatch} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 
 const Recipe = ({ recipe }) => {
-  // State to track whether the recipe is marked as favorite
-  const [isFavorite, setIsFavorite] = useState(false);
+    // Get favorite items from Redux state
+    const favoriteItems = useSelector((state) => state.favorite.favoriteItems);
+
+    // Set initial state for isFavorite based on whether the recipe is in favoriteItems
+    const [isFavorite, setIsFavorite] = useState(
+      favoriteItems.some((item) => item._id === recipe._id)
+    );
 
   const dispatch = useDispatch();
 

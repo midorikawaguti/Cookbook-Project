@@ -5,7 +5,6 @@ import { removeFromFav } from '../slices/favoriteSlice';
 import {Row, Col, ListGroup, Image, Button} from 'react-bootstrap';
 import Message from '../components/Message';
 import { FaTrash } from 'react-icons/fa';
-import Recipe from '../components/Recipe';
 
 function FavoriteScreen() {
 
@@ -14,9 +13,6 @@ function FavoriteScreen() {
     const favorite = useSelector( (state) => state.favorite);
     const {favoriteItems} = favorite;
     
-    // const addToFavHandler = async (recipe) =>{
-    //     dispatch(addToFav({...recipe}));
-    // } 
 
     const removeFavHandler = async(id) =>{
         dispatch(removeFromFav(id));
@@ -49,7 +45,6 @@ function FavoriteScreen() {
                                 </Col>
                                 <Col md={2}>
                                     <Button
-                                    type="checkbox"
                                     className="favorite-icon"
                                     variant="link"  // The link variant removes the background color but doesn't fully eliminate the border
                                     // checked={isFavorite}
