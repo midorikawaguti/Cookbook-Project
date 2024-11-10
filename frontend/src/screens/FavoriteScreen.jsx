@@ -1,25 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-// import { addToFav, removeFromFav } from '../slices/favoriteSlice';
-import {Row, Col} from 'react-bootstrap';
+import { useDispatch,useSelector } from 'react-redux';
+import { removeFromFav } from '../slices/favoriteSlice';
+import {Row, Col, ListGroup, Image, Button} from 'react-bootstrap';
 import Message from '../components/Message';
+import { FaTrash } from 'react-icons/fa';
 import Recipe from '../components/Recipe';
 
 function FavoriteScreen() {
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const favorite = useSelector( (state) => state.favorite);
     const {favoriteItems} = favorite;
     
-    // const addToFavHandler = async (recipe, qty) =>{
-    //     dispatch(addToFav({...recipe, qty}));
+    // const addToFavHandler = async (recipe) =>{
+    //     dispatch(addToFav({...recipe}));
     // } 
 
-    // const removeFromFavHandler = async(id) =>{
-    //     dispatch(removeFromFav(id));
-    // }
+    const removeFavHandler = async(id) =>{
+        dispatch(removeFromFav(id));
+    }
   return (
 
     <Row> 
@@ -29,14 +30,41 @@ function FavoriteScreen() {
                 Favorite Selection is empty <Link to="/">Go Back</Link>
             </Message>
           ):(
-            <Row>
-            {favoriteItems.map((recipe)=>(
-                <Col key={recipe._id} sm={12} md={6} lg={4} xl={3}>
-                    <Recipe recipe={recipe}></Recipe>
-                </Col>
-            ))}
-            </Row>
-          )}
+            <Col md={8}>
+                <ListGroup variant='flush'>
+                    {favoriteItems.map((item) =>(
+                        <ListGroup.Item key={item._id}>
+                            <Row>
+                                <Col md={2}>
+                                    <Image style={{ width: '9rem', height: '7rem' }} src={item.image} alt={item.name} fluid rounded/>
+                                </Col>
+                                <Col md={2}>
+                                    <Link to ={`/recipe/${item._id}`}>{item.name}</Link>
+                                </Col>
+                                <Col md={4}>
+                                    {item.description}
+                                </Col>
+                                <Col md={2}>
+                                    {item.rating}
+                                </Col>
+                                <Col md={2}>
+                                    <Button
+                                    type="checkbox"
+                                    className="favorite-icon"
+                                    variant="link"  // The link variant removes the background color but doesn't fully eliminate the border
+                                    // checked={isFavorite}
+                                    onClick={() => removeFavHandler(item._id)}
+                                    > 
+                                    <FaTrash size={24} />
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </ListGroup.Item>
+                    ))}
+
+                </ListGroup>
+            </Col>
+        )}
             
     </Row>
 ) }

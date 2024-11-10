@@ -10,8 +10,6 @@ const Recipe = ({ recipe }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const dispatch = useDispatch();
-  // const favorite = useSelector((state)=> state.favorite);
-  // const {favItems} = favorite;
 
   // Function to Add to favorite
   const addToFavHandler = (recipe) => {
