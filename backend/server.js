@@ -5,6 +5,7 @@ import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import recipeRoutes from '../backend/routes/recipeRoute.js';
 import userRoutes from './routes/userRoutes.js'
+import cookieParser from 'cookie-parser';
 
 const port = process.env.PORT || 8000; //port for the back end is set in .env file with PORT=5500
 
@@ -19,6 +20,9 @@ app.use(express.urlencoded({extended:true}))
 app.get('/', (req, res)=>{
     res.send('API is running in cookbook app...')
 });
+
+//Cookie parser Middleware
+app.use(cookieParser());
 
 
 // GET ALL RECIPES
