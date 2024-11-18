@@ -1,6 +1,7 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import User from '../models/userModel.js'
 import jwt from 'jsonwebtoken';
+import generateToken from "../utils/generateToken.js";
 
 // @desc Auth user & get token
 // @route GET/api/users/login
@@ -11,17 +12,19 @@ const authUser = asyncHandler(async (req, res) => {
     const user = await User.findOne({email});
     
     if(user&&(await user.matchPassword(password))){
-        const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET,{
-            expiresIn:'30d'
-        });
+
+        generateToken(res, user._id);
+        // const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET,{
+        //     expiresIn:'30d'
+        // });
         
-        //set JWT as HTTP-Only Cookie
-        res.cookie('jwt', token,{
-            httpOnly: true,
-            secure: process.env.NODE_ENV!=='development',
-            samesite:'strict',
-            maxAge: 30*24*60*60*1000 
-        });
+        // //set JWT as HTTP-Only Cookie
+        // res.cookie('jwt', token,{
+        //     httpOnly: true,
+        //     secure: process.env.NODE_ENV!=='development',
+        //     samesite:'strict',
+        //     maxAge: 30*24*60*60*1000 
+        // });
         res.json({
             _id: user._id,
             name: user.name,
@@ -40,6 +43,31 @@ const authUser = asyncHandler(async (req, res) => {
 // @access Public
 
 const registerUser = asyncHandler(async (req, res) => {
+    const {name, email, password} = req.body;
+    const userExists = await User.findOne({email});
+
+    if(userExists){
+        res.status(400);
+        throw new Error ('User already exists');
+    }
+    
+    const user=await User.create({
+        name,
+        email,
+        password
+    });
+
+    if(user){
+        res.status(201).json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            isAdmin: user.isAdmin
+        });
+    }else{
+        res.status(400);
+        throw new Error('Invalid User data');
+    }
     res.send('register user')
 });
 
