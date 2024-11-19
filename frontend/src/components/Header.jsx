@@ -47,7 +47,7 @@ const Header = () => {
 
               <NavDropdown.Divider />
 
-            <LinkContainer to="/action/3.3">
+            <LinkContainer to="/login">
               <NavDropdown.Item>
                 Log out
               </NavDropdown.Item>

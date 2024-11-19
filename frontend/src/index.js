@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import HomeScreen from './screens/HomeScreen';
 import RecipeScreen from './screens/RecipeScreen';
+import LoginScreen from './screens/LoginScreen';
 import store from '../src/store';
 import { Provider } from 'react-redux';
 // import 'bootstrap/dist/css/bootstrap.min.css'
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
        <Route path="/recipe/:id" element={<RecipeScreen/>}/>
        <Route path="/home" element={<HomeScreen/>}/>
        <Route path="/favorites" element={<FavoriteScreen/>}/>
+       <Route path="/login" element={<LoginScreen/>}/>
     </Route>
   )
 )

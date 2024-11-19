@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import { Container } from 'react-bootstrap'
+import { Container, ToastContainer } from 'react-bootstrap'
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 
@@ -13,6 +13,7 @@ function App() {
         </Container>
       </main>
       <Footer/>
+      <ToastContainer/>
     </>
 }
 
