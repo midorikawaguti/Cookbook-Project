@@ -1,8 +1,17 @@
 import React from 'react'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import { useSelector } from 'react-redux';
 import {LinkContainer} from 'react-router-bootstrap';
+import {FaUser, FaHeart, } from 'react-icons/fa'
+import { Profile } from 'react';
 
 const Header = () => {
+  const {userInfo} = useSelector((state) => state.auth);
+
+  const logoutHandler=()=>{
+    console.log('logout');
+  }
+
   return (
     <header>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -30,28 +39,38 @@ const Header = () => {
               </Nav.Link>
           </LinkContainer>
 
-            <NavDropdown title="Profile" id="basic-nav-dropdown">
+
+            <NavDropdown title="User" id="basic-nav-dropdown">
               
-            <LinkContainer to="/action/3.1">
+            <LinkContainer to='/profile'>
               <NavDropdown.Item>
-                Settings
+                <FaUser/> Profile
               </NavDropdown.Item>
             </LinkContainer>
               
-            <LinkContainer to="/favorites">
+              <LinkContainer to="/favorites">
               <NavDropdown.Item>
-                Favorites
+                <FaHeart/>  Favorites
               </NavDropdown.Item>
             </LinkContainer>
-              
 
               <NavDropdown.Divider />
-
-            <LinkContainer to="/login">
+            {userInfo?(
+              <NavDropdown.Item onClick={logoutHandler}>
+                Log out
+              </NavDropdown.Item>
+            ):(
+              <LinkContainer to="/login">
+              <NavDropdown.Item>
+                Sign in
+              </NavDropdown.Item>
+            </LinkContainer>
+            )}
+            {/* <LinkContainer to="/login">
               <NavDropdown.Item>
                 Log out
               </NavDropdown.Item>
-            </LinkContainer>
+            </LinkContainer> */}
               
             </NavDropdown>
           </Nav>
