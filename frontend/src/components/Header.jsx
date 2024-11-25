@@ -3,13 +3,29 @@ import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import { useSelector } from 'react-redux';
 import {LinkContainer} from 'react-router-bootstrap';
 import {FaUser, FaHeart, } from 'react-icons/fa'
-import { Profile } from 'react';
+import {useLogoutMutation} from '../slices/usersApiSlice';
+import {logout} from '../slices/authSlice';
+import {useNavigate} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 
 const Header = () => {
   const {userInfo} = useSelector((state) => state.auth);
 
-  const logoutHandler=()=>{
-    console.log('logout');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [logoutApiCall] = useLogoutMutation();
+
+  const logoutHandler= async()=>{
+    try{
+      await logoutApiCall().unwrap();
+      dispatch(logout());
+      navigate('/login');
+    }
+    catch(err){
+      console.log(err);
+    }
   }
 
   return (
